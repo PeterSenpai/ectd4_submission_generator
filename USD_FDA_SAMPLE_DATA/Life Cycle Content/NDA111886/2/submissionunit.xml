@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This eCTD v4.0 message depicts sample content for a NDA Original Application 111886 Sequence 2-->
+<!--Conformant to ICH eCTD v1.5 Implementation Package and USFDA eCTD v1.5.1 Implementation package.-->
+<PORP_IN000001UV ITSVersion="XML_1.0" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 PORP_IN000001UV.xsd">
+	<id/>
+	<creationTime/>
+	<interactionId/>
+	<processingCode/>
+	<processingModeCode/>
+	<acceptAckCode/>
+	<!--Message header should be modified for the current IG version.  The US IG id.item is required. -->
+	<receiver typeCode="RCV">
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id>
+				<item root="2.16.840.1.113883.3.989.2.2.1.11.4" identifierName="ICH eCTD v4.0 IG v1.5"/>
+				<item root="2.16.840.1.113883.3.989.5.1.2.2.1.18.6" identifierName="USFDA eCTD v4.0 IG v1.5.1"/>
+			</id>
+		</device>
+	</receiver>
+	<sender typeCode="SND">
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id/>
+		</device>
+	</sender>
+	<!--Message Payload begins here..-->
+	<controlActProcess classCode="ACTN" moodCode="EVN">
+		<subject typeCode="SUBJ">
+			<submissionUnit>
+				<id root="60bd06fa-9b1a-4ffb-b68b-b375c7c5a6b1"/>
+				<code code="us_submission_unit_type_4" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.13.1"/>
+				<title value="Original Application - Amendment 1"/>
+				<statusCode code="active"/>
+				<!--Start - Context of Use - 356H Form-->
+				<component>
+					<priorityNumber value="2000"/>
+					<contextOfUse>
+						<id root="9354acd3-304b-4033-a778-2da846636ec5"/>
+						<code code="us_1.1" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.2.5"/>
+						<statusCode code="active"/>
+						<!--Form 356h-->
+						<derivedFrom>
+							<documentReference>
+								<id root="8d8bbd6a-d761-4021-ab2b-5f55186b5f74"/>
+							</documentReference>
+						</derivedFrom>
+						<referencedBy typeCode="REFR">
+							<keyword>
+								<code code="us_form_type_2" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.5.5"/>
+							</keyword>
+						</referencedBy>
+					</contextOfUse>
+				</component>
+				<!--End - Context of Use-->
+				<!--Start - Context of Use-->
+				<component>
+					<priorityNumber value="2000"/>
+					<contextOfUse>
+						<id root="e9119160-ba15-41c9-971c-710c3217b8d2"/>
+						<code code="us_1.2" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.2.5"/>
+						<statusCode code="active"/>
+						<!--Cover Letter-->
+						<derivedFrom>
+							<documentReference>
+								<id root="92ba647a-a233-481b-9859-a9eae2c27377"/>
+							</documentReference>
+						</derivedFrom>
+					</contextOfUse>
+				</component>
+				<!--End - Context of Use-->
+				<!--Start - Context of Use-->
+				<component>
+					<priorityNumber value="3100"/>
+					<contextOfUse>
+						<id root="283dab56-9ed1-4842-8c72-2b6496ba597d"/>
+						<code code="ich_5.3.1.1" codeSystem="2.16.840.1.113883.3.989.2.2.1.1.4"/>
+						<statusCode code="active"/>
+						<replacementOf typeCode="RPLC">
+							<relatedContextOfUse>
+								<id root="d6a4c5b1-7d1e-4442-9195-9b7d903e6f24"/>
+							</relatedContextOfUse>
+						</replacementOf>
+						<replacementOf typeCode="RPLC">
+							<relatedContextOfUse>
+								<id root="7be85400-9f0b-46c0-8b73-7af58573acf7"/>
+							</relatedContextOfUse>
+						</replacementOf>
+						<replacementOf typeCode="RPLC">
+							<relatedContextOfUse>
+								<id root="8b19421d-5508-46a3-8935-bca75da939e9"/>
+							</relatedContextOfUse>
+						</replacementOf>
+						<derivedFrom>
+							<documentReference>
+								<id root="474e18fd-4396-4ebe-b9e5-a8629edc455f"/>
+							</documentReference>
+						</derivedFrom>
+						<referencedBy typeCode="REFR">
+							<keyword>
+								<code code="ich_document_type_4" codeSystem="2.16.840.1.113883.3.989.2.2.1.3.3"/>
+							</keyword>
+						</referencedBy>
+						<referencedBy typeCode="REFR">
+							<keyword>
+								<code code="STDYID_TITLEABC" codeSystem="2.16.840.1.113883.9999.2"/>
+							</keyword>
+						</referencedBy>
+					</contextOfUse>
+				</component>
+				<!--End - Context of Use-->				
+				<!--Start - Submission-->
+				<componentOf1>
+					<!-- The sequence number should be a whole number.-->
+					<sequenceNumber value="2"/>
+					<!--Submission element includes the unique identifier and code value of the submission type (Original Application in this sample)-->
+					<submission>
+						<id xsi:type="DSET_II">
+							<item root="1f499b74-f640-4c69-8582-d9707083fc1a"/>
+						</id>
+						<code code="us_submission_type_1" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.12.4"/>
+						<!--Contact Parties are provided for the regulatory and technical contacts-->
+						<callBackContact>
+							<!--Regulatory Contact for the Submission-->
+							<contactParty>
+								<id root="417e5c25-2001-40d1-af34-f1f285614187"/>
+								<code code="us_submission_contact_type_1" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.11.2"/>
+								<statusCode code="active"/>
+								<contactPerson>
+									<name>
+										<part type="GIV" value="Jane"/>
+										<part type="GIV" value="Mary" qualifier="MID"/>
+										<part type="FAM" value="Smith"/>
+									</name>
+									<telecom xsi:type="BAG_TEL">
+										<item value="tel:+1(212)555-9997" use="WP" capabilities="voice"/>
+										<item value="tel:+1(212)555-9998" use="MC" capabilities="voice"/>
+										<item value="tel:+1(111)999-9999" use="WP" capabilities="fax"/>
+										<item value="mailto:jane.smith@gooddrugs.com"/>
+									</telecom>
+									<asAgent>
+										<representedOrganization>
+											<name>
+												<part value="Good Drugs"/>
+											</name>
+										</representedOrganization>
+									</asAgent>
+								</contactPerson>
+							</contactParty>
+						</callBackContact>
+						<callBackContact>
+							<!--Technical Contact for the Submission-->
+							<contactParty>
+								<id root="bc300036-8bd4-4100-9360-4896e67d119a"/>
+								<code code="us_submission_contact_type_2" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.11.2"/>
+								<statusCode code="active"/>
+								<contactPerson>
+									<name>
+										<part type="GIV" value="John"/>
+										<part type="GIV" value="J" qualifier="IN"/>
+										<part type="FAM" value="Smith"/>
+									</name>
+									<telecom xsi:type="BAG_TEL">
+										<item value="tel:+1(212)555-9991" use="WP" capabilities="voice"/>
+										<item value="tel:+1(212)555-9992" use="MC" capabilities="voice"/>
+										<item value="tel:+1(111)999-9993" use="WP" capabilities="fax"/>
+										<item value="mailto:jj.smith@gooddrugs.com"/>
+									</telecom>
+									<asAgent>
+										<representedOrganization>
+											<name>
+												<part value="Good Drugs"/>
+											</name>
+										</representedOrganization>
+									</asAgent>
+								</contactPerson>
+							</contactParty>
+						</callBackContact>
+						<!--End - Submission-->
+						<!--Start - Application-->
+						<componentOf>
+							<application>
+								<id>
+									<item root="2.16.840.1.113883.3.989.5.1.2.2.1.16.1" extension="111886"/>
+								</id>
+								<code code="us_application_type_1" codeSystem="2.16.840.1.113883.3.989.5.1.2.2.1.1.3"/>
+								<holder>
+									<applicant>
+										<sponsorOrganization>
+											<name>
+												<part value="Good Drugs"/>
+											</name>
+										</sponsorOrganization>
+									</applicant>
+								</holder>
+								<subject>
+									<reviewProcedure>
+										<code/>
+									</reviewProcedure>
+								</subject>
+								<!--Start - Document - Cover Letter for Application-->
+								<component>
+									<document>
+										<id root="92ba647a-a233-481b-9859-a9eae2c27377"/>
+										<title value="Cover Letter-NDA 111886_2-Amendment"/>
+										<text integrityCheckAlgorithm="SHA256">
+											<reference value="m1/cover-111886_2.pdf"/>
+											<integrityCheck>6b745b76d4daeccce9cca7d683fd2c49f48b9fc24c8d167e1d68b6112ae7e568</integrityCheck>
+										</text>
+									</document>
+								</component>
+								<!--End - Document-->
+								<!--Start - Document - Form 356h-->
+								<component>
+									<document>
+										<id root="8d8bbd6a-d761-4021-ab2b-5f55186b5f74"/>
+										<title value="Form FDA 356h-NDA 111886_2-Amendment"/>
+										<text integrityCheckAlgorithm="SHA256">
+											<reference value="m1/356h_111886_2.pdf"/>
+											<integrityCheck>10f692a298593c65be810c2a8df803c9a947795d2e48435cde22b8da427d3648</integrityCheck>
+										</text>
+									</document>
+								</component>
+								<!--End - Document-->
+								<!--Start - Document - bioavailability-->
+								<component>
+									<document>
+										<id root="474e18fd-4396-4ebe-b9e5-a8629edc455f"/>
+										<title value="bioavailability_study0001_ABCD_Replaced_parts1-3"/>
+										<text integrityCheckAlgorithm="SHA256">
+											<reference value="m5/bioavailability_study0001_ABCD_Replace_Part1-3.pdf"/>
+											<integrityCheck>5b11bf8a39e4f84dcdf3784a330a5a5429ace50484694d95ec99cc49adf236c8</integrityCheck>
+										</text>
+									</document>
+								</component>
+								<!--End - Document-->
+								<!--Start - Document - bioavailability-->
+								<!--Document Title Update without new CoU included-->
+								<component>
+									<document>
+										<id root="f1e8b43c-1e3d-4612-a7f7-5da9af858953"/>
+										<title value="bioavailability_study0001_ABCD_typoCorrection" updateMode="R"/>
+									</document>
+								</component>
+								<!--End - Document-->
+								<!--Updated Keyword to remove "typo"-->
+								<referencedBy>
+									<keywordDefinition>
+										<code code="ich_keyword_type_8" codeSystem="2.16.840.1.113883.3.989.2.2.1.5.3"/>
+										<statusCode code="active"/>
+										<value>
+											<item code="STDYID_TITLEABC" codeSystem="2.16.840.1.113883.9999.2">
+												<displayName value="Study0001_$StudyABCD" updateMode="R"/>
+											</item>
+										</value>
+									</keywordDefinition>
+								</referencedBy>
+								<!--End - Application-->
+							</application>
+						</componentOf>
+					</submission>
+				</componentOf1>
+			</submissionUnit>
+		</subject>
+	</controlActProcess>
+</PORP_IN000001UV>
