@@ -222,7 +222,12 @@ function buildContextOfUse(options) {
   
   // Add keyword references
   if (options.keywordRefs && options.keywordRefs.length > 0) {
-    contextOfUse.referencedBy = options.keywordRefs;
+    // If single keyword ref, add directly; if multiple, wrap in array
+    if (options.keywordRefs.length === 1) {
+      contextOfUse.referencedBy = options.keywordRefs[0];
+    } else {
+      contextOfUse.referencedBy = options.keywordRefs;
+    }
   }
   
   return {

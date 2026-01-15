@@ -53,13 +53,11 @@ function buildKeywordDefinition(keyword) {
  */
 function buildKeywordReference(keywordCode, codeSystem) {
   return {
-    referencedBy: {
-      '@_typeCode': 'REFR',
-      keyword: {
-        code: {
-          '@_code': keywordCode,
-          '@_codeSystem': codeSystem
-        }
+    '@_typeCode': 'REFR',
+    keyword: {
+      code: {
+        '@_code': keywordCode,
+        '@_codeSystem': codeSystem
       }
     }
   };

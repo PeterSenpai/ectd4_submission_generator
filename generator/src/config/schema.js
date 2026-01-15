@@ -272,11 +272,13 @@ function getDefaultConfig() {
                 module: "m3",
                 type: "product_info",
                 title: "Product Information",
+                keywordRefs: ["MANU_001", "PROD_NAME_001"],
             },
             {
                 module: "m5",
                 type: "bioavailability",
                 title: "Bioavailability Study Report",
+                keywordRefs: ["STUDY_001"],
             },
         ],
         keywords: [
@@ -285,6 +287,18 @@ function getDefaultConfig() {
                 code: "STUDY_001",
                 codeSystem: "2.16.840.1.113883.9999.1",
                 displayName: "Pivotal BA Study",
+            },
+            {
+                type: "manufacturer",
+                code: "MANU_001",
+                codeSystem: "2.16.840.1.113883.9999.2",
+                displayName: "Sample Pharmaceuticals Manufacturing Site",
+            },
+            {
+                type: "productName",
+                code: "PROD_NAME_001",
+                codeSystem: "2.16.840.1.113883.9999.1",
+                displayName: "Sample Drug Product XYZ",
             },
         ],
     };
