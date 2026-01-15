@@ -241,7 +241,7 @@ async function generateSubmissionUnitXML(config, sequenceDir, generatedFiles) {
     attributeNamePrefix: '@_',
     format: true,
     indentBy: '\t',
-    suppressEmptyNode: false,
+    suppressEmptyNode: true,
     suppressBooleanAttributes: false
   });
   
