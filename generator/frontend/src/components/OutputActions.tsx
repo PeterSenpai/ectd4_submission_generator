@@ -24,7 +24,7 @@ export function OutputActions({
     disabled,
 }: OutputActionsProps) {
     return (
-        <Card className="border-zinc-800 bg-zinc-950/50 sticky bottom-4">
+        <Card className="border-zinc-800 bg-zinc-900 sticky bottom-4">
             <CardHeader className="pb-3">
                 <CardTitle className="text-lg text-zinc-100">
                     Output Actions

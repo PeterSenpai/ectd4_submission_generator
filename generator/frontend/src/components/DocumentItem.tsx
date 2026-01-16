@@ -13,24 +13,32 @@ import { Card, CardContent } from "@/components/ui/card";
 import type { Document, DocumentModule, DocumentType, Keyword } from "@/types/config";
 import { Trash2, GripVertical } from "lucide-react";
 
-const MODULE_OPTIONS: { value: DocumentModule; label: string }[] = [
-    { value: "m1", label: "Module 1 - Administrative" },
-    { value: "m2", label: "Module 2 - Summaries" },
-    { value: "m3", label: "Module 3 - Quality" },
-    { value: "m4", label: "Module 4 - Nonclinical" },
-    { value: "m5", label: "Module 5 - Clinical" },
+const MODULE_OPTIONS: { value: DocumentModule; label: string; short: string }[] = [
+    { value: "m1", label: "Module 1 - Administrative", short: "M1" },
+    { value: "m2", label: "Module 2 - Summaries", short: "M2" },
+    { value: "m3", label: "Module 3 - Quality", short: "M3" },
+    { value: "m4", label: "Module 4 - Nonclinical", short: "M4" },
+    { value: "m5", label: "Module 5 - Clinical", short: "M5" },
 ];
 
-const DOCUMENT_TYPE_OPTIONS: { value: DocumentType; label: string }[] = [
-    { value: "356h", label: "Form FDA 356h" },
-    { value: "cover", label: "Cover Letter" },
-    { value: "product_info", label: "Product Information" },
-    { value: "bioavailability", label: "Bioavailability Study" },
-    { value: "clinical_summary", label: "Clinical Summary" },
-    { value: "nonclinical_summary", label: "Nonclinical Summary" },
-    { value: "quality_summary", label: "Quality Summary" },
-    { value: "study_report", label: "Study Report" },
+const DOCUMENT_TYPE_OPTIONS: { value: DocumentType; label: string; title: string }[] = [
+    { value: "356h", label: "Form FDA 356h", title: "Form FDA 356h" },
+    { value: "cover", label: "Cover Letter", title: "Cover Letter" },
+    { value: "product_info", label: "Product Information", title: "Product Information" },
+    { value: "bioavailability", label: "Bioavailability Study", title: "Bioavailability Study Report" },
+    { value: "clinical_summary", label: "Clinical Summary", title: "Clinical Summary" },
+    { value: "nonclinical_summary", label: "Nonclinical Summary", title: "Nonclinical Summary" },
+    { value: "quality_summary", label: "Quality Summary", title: "Quality Summary" },
+    { value: "study_report", label: "Study Report", title: "Study Report" },
 ];
+
+const generateTitle = (module: DocumentModule, type: DocumentType): string => {
+    const moduleOption = MODULE_OPTIONS.find(o => o.value === module);
+    const typeOption = DOCUMENT_TYPE_OPTIONS.find(o => o.value === type);
+    const moduleLabel = moduleOption?.short || module.toUpperCase();
+    const typeTitle = typeOption?.title || type;
+    return `[title] [${moduleLabel}] ${typeTitle}`;
+};
 
 interface DocumentItemProps {
     document: Document;
@@ -52,6 +60,16 @@ export function DocumentItem({
         value: Document[K]
     ) => {
         onChange({ ...document, [field]: value });
+    };
+
+    const handleModuleChange = (module: DocumentModule) => {
+        const newTitle = generateTitle(module, document.type);
+        onChange({ ...document, module, title: newTitle });
+    };
+
+    const handleTypeChange = (type: DocumentType) => {
+        const newTitle = generateTitle(document.module, type);
+        onChange({ ...document, type, title: newTitle });
     };
 
     const toggleKeyword = (keywordCode: string) => {
@@ -104,7 +122,7 @@ export function DocumentItem({
                                 <Select
                                     value={document.module}
                                     onValueChange={(value: DocumentModule) =>
-                                        handleFieldChange("module", value)
+                                        handleModuleChange(value)
                                     }
                                 >
                                     <SelectTrigger className="border-zinc-700 bg-zinc-800 text-zinc-100">
@@ -131,7 +149,7 @@ export function DocumentItem({
                                 <Select
                                     value={document.type}
                                     onValueChange={(value: DocumentType) =>
-                                        handleFieldChange("type", value)
+                                        handleTypeChange(value)
                                     }
                                 >
                                     <SelectTrigger className="border-zinc-700 bg-zinc-800 text-zinc-100">
@@ -156,6 +174,9 @@ export function DocumentItem({
                             <div className="space-y-2">
                                 <Label className="text-zinc-400">
                                     Associated Keywords
+                                    <span className="text-xs text-zinc-500 ml-2">
+                                        (click to toggle)
+                                    </span>
                                 </Label>
                                 <div className="flex flex-wrap gap-2">
                                     {availableKeywords.map((keyword) => {
@@ -180,6 +201,9 @@ export function DocumentItem({
                                                     toggleKeyword(keyword.code)
                                                 }
                                             >
+                                                <span className="font-mono text-xs opacity-70 mr-1">
+                                                    {keyword.code}
+                                                </span>
                                                 {keyword.displayName}
                                             </Badge>
                                         );
