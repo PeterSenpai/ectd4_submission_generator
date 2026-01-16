@@ -1,0 +1,514 @@
+{
+  "application": {
+    "type": "NDA",
+    "number": "999888",
+    "sponsor": "Global Pharmaceuticals Inc"
+  },
+  "submission": {
+    "type": "original",
+    "sequenceNumber": 1,
+    "title": "Large Scale Submission with Multiple Keywords"
+  },
+  "contacts": {
+    "regulatory": {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@global.com",
+      "phone": "+1(555)123-4567",
+      "organization": "Global Pharmaceuticals Inc"
+    },
+    "technical": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@global.com",
+      "phone": "+1(555)987-6543",
+      "organization": "Global Pharmaceuticals Inc"
+    }
+  },
+  "documents": [
+    { "module": "m1", "type": "356h", "title": "Form FDA 356h" },
+    { "module": "m1", "type": "cover", "title": "Cover Letter" },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product A - Formulation Data",
+      "keywordRefs": ["MANU_001", "PROD_001"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product B - Formulation Data",
+      "keywordRefs": ["MANU_002", "PROD_002"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product C - Formulation Data",
+      "keywordRefs": ["MANU_003", "PROD_003"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product D - Formulation Data",
+      "keywordRefs": ["MANU_004", "PROD_004"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product E - Formulation Data",
+      "keywordRefs": ["MANU_005", "PROD_005"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product F - Formulation Data",
+      "keywordRefs": ["MANU_006", "PROD_006"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product G - Formulation Data",
+      "keywordRefs": ["MANU_007", "PROD_007"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product H - Formulation Data",
+      "keywordRefs": ["MANU_008", "PROD_008"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product I - Formulation Data",
+      "keywordRefs": ["MANU_009", "PROD_009"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product J - Formulation Data",
+      "keywordRefs": ["MANU_010", "PROD_010"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product K - Formulation Data",
+      "keywordRefs": ["MANU_011", "PROD_011"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product L - Formulation Data",
+      "keywordRefs": ["MANU_012", "PROD_012"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product M - Formulation Data",
+      "keywordRefs": ["MANU_013", "PROD_013"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product N - Formulation Data",
+      "keywordRefs": ["MANU_014", "PROD_014"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product O - Formulation Data",
+      "keywordRefs": ["MANU_015", "PROD_015"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product P - Formulation Data",
+      "keywordRefs": ["MANU_016", "PROD_016"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product Q - Formulation Data",
+      "keywordRefs": ["MANU_017", "PROD_017"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product R - Formulation Data",
+      "keywordRefs": ["MANU_018", "PROD_018"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product S - Formulation Data",
+      "keywordRefs": ["MANU_019", "PROD_019"]
+    },
+    {
+      "module": "m3",
+      "type": "product_info",
+      "title": "Drug Product T - Formulation Data",
+      "keywordRefs": ["MANU_020", "PROD_020"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product A - Stability Data",
+      "keywordRefs": ["MANU_001", "PROD_001"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product B - Stability Data",
+      "keywordRefs": ["MANU_002", "PROD_002"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product C - Stability Data",
+      "keywordRefs": ["MANU_003", "PROD_003"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product D - Stability Data",
+      "keywordRefs": ["MANU_004", "PROD_004"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product E - Stability Data",
+      "keywordRefs": ["MANU_005", "PROD_005"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product F - Stability Data",
+      "keywordRefs": ["MANU_006", "PROD_006"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product G - Stability Data",
+      "keywordRefs": ["MANU_007", "PROD_007"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product H - Stability Data",
+      "keywordRefs": ["MANU_008", "PROD_008"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product I - Stability Data",
+      "keywordRefs": ["MANU_009", "PROD_009"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product J - Stability Data",
+      "keywordRefs": ["MANU_010", "PROD_010"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product K - Stability Data",
+      "keywordRefs": ["MANU_011", "PROD_011"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product L - Stability Data",
+      "keywordRefs": ["MANU_012", "PROD_012"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product M - Stability Data",
+      "keywordRefs": ["MANU_013", "PROD_013"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product N - Stability Data",
+      "keywordRefs": ["MANU_014", "PROD_014"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product O - Stability Data",
+      "keywordRefs": ["MANU_015", "PROD_015"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product P - Stability Data",
+      "keywordRefs": ["MANU_016", "PROD_016"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product Q - Stability Data",
+      "keywordRefs": ["MANU_017", "PROD_017"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product R - Stability Data",
+      "keywordRefs": ["MANU_018", "PROD_018"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product S - Stability Data",
+      "keywordRefs": ["MANU_019", "PROD_019"]
+    },
+    {
+      "module": "m3",
+      "type": "drug_product",
+      "title": "Drug Product T - Stability Data",
+      "keywordRefs": ["MANU_020", "PROD_020"]
+    }
+  ],
+  "keywords": [
+    {
+      "type": "manufacturer",
+      "code": "MANU_001",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Acme Pharmaceutical Manufacturing - Boston Site"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_002",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "BioPharma Labs - San Diego Facility"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_003",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Coastal Manufacturing - Miami Plant"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_004",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Delta Pharma Industries - Chicago Site"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_005",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Evergreen Pharmaceuticals - Seattle Facility"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_006",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Frontier BioSciences - Denver Plant"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_007",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Global Med Manufacturing - Atlanta Site"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_008",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Horizon Pharma Labs - Phoenix Facility"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_009",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Innovative Drug Works - Portland Plant"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_010",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Jupiter Biologics - Orlando Site"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_011",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Keystone Pharmaceuticals - Philadelphia Facility"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_012",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Liberty Drug Manufacturing - New York Plant"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_013",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Midwest Pharma Solutions - Minneapolis Site"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_014",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Northern BioTech - Detroit Facility"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_015",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Oceanic Pharmaceuticals - Los Angeles Plant"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_016",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Pacific Drug Industries - San Francisco Site"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_017",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Quantum BioManufacturing - Austin Facility"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_018",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Riverside Pharma Corp - Cincinnati Plant"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_019",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Summit Drug Manufacturing - Salt Lake City Site"
+    },
+    {
+      "type": "manufacturer",
+      "code": "MANU_020",
+      "codeSystem": "2.16.840.1.113883.9999.2",
+      "displayName": "Titan Pharmaceuticals - Houston Facility"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_001",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Adalimumab 40mg/0.8mL Injectable Solution"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_002",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Bevacizumab 25mg/mL Injection"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_003",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Cetuximab 2mg/mL Infusion Solution"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_004",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Denosumab 60mg/mL Subcutaneous Injection"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_005",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Etanercept 50mg/mL Prefilled Syringe"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_006",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Filgrastim 300mcg/0.5mL Injectable"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_007",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Golimumab 50mg/0.5mL Autoinjector"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_008",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Herceptin 150mg Lyophilized Powder"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_009",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Infliximab 100mg Vial for IV Infusion"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_010",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Januvia 100mg Tablets"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_011",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Keytruda 100mg/4mL IV Solution"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_012",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Lucentis 10mg/mL Intravitreal Injection"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_013",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Metformin Extended Release 1000mg Tablets"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_014",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Neulasta 6mg/0.6mL Prefilled Syringe"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_015",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Opdivo 10mg/mL Injection"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_016",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Prolia 60mg/mL Single-use Prefilled Syringe"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_017",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Remicade 100mg Powder for Injection"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_018",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Stelara 45mg/0.5mL Subcutaneous Solution"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_019",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Trulicity 1.5mg/0.5mL Single-dose Pen"
+    },
+    {
+      "type": "productName",
+      "code": "PROD_020",
+      "codeSystem": "2.16.840.1.113883.9999.1",
+      "displayName": "Xarelto 20mg Film-coated Tablets"
+    }
+  ]
+}

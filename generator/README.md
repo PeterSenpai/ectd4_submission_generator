@@ -4,13 +4,13 @@ A Node.js command-line tool for generating valid eCTD 4.0 submission packages co
 
 ## Features
 
-- Generates compliant `submissionunit.xml` following HL7 v3 RPS schema
-- Creates proper directory structure for CTD modules (m1-m5)
-- Generates placeholder PDF documents for testing
-- Calculates SHA256 checksums and creates `sha256.txt`
-- Supports lifecycle operations (new, replace, append, delete/withdraw)
-- Generates sender-defined keywords (Study ID, Product Name, Manufacturer)
-- Validates input configuration against JSON schema
+-   Generates compliant `submissionunit.xml` following HL7 v3 RPS schema
+-   Creates proper directory structure for CTD modules (m1-m5)
+-   Generates placeholder PDF documents for testing
+-   Calculates SHA256 checksums and creates `sha256.txt`
+-   Supports lifecycle operations (new, replace, append, delete/withdraw)
+-   Generates sender-defined keywords (Study ID, Product Name, Manufacturer)
+-   Validates input configuration against JSON schema
 
 ## Installation
 
@@ -55,100 +55,123 @@ npm start -- --default --no-samples
 
 ```json
 {
-  "application": {
-    "type": "NDA",
-    "number": "123456",
-    "sponsor": "Sample Pharmaceuticals Inc"
-  },
-  "submission": {
-    "type": "original",
-    "sequenceNumber": 1,
-    "title": "Original Application"
-  },
-  "contacts": {
-    "regulatory": {
-      "firstName": "Jane",
-      "lastName": "Smith",
-      "email": "jane.smith@sample.com",
-      "phone": "+1(555)123-4567",
-      "organization": "Sample Pharmaceuticals Inc"
+    "application": {
+        "type": "NDA",
+        "number": "123456",
+        "sponsor": "Sample Pharmaceuticals Inc"
     },
-    "technical": {
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "john.doe@sample.com"
-    }
-  },
-  "documents": [
-    {
-      "module": "m1",
-      "type": "356h",
-      "title": "Form FDA 356h"
+    "submission": {
+        "type": "original",
+        "sequenceNumber": 1,
+        "title": "Original Application"
     },
-    {
-      "module": "m1",
-      "type": "cover",
-      "title": "Cover Letter"
+    "contacts": {
+        "regulatory": {
+            "firstName": "Jane",
+            "lastName": "Smith",
+            "email": "jane.smith@sample.com",
+            "phone": "+1(555)123-4567",
+            "organization": "Sample Pharmaceuticals Inc"
+        },
+        "technical": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe@sample.com"
+        }
     },
-    {
-      "module": "m5",
-      "type": "bioavailability",
-      "title": "Bioavailability Study Report",
-      "keywordRefs": ["STUDY_001"]
-    }
-  ],
-  "keywords": [
-    {
-      "type": "studyId",
-      "code": "STUDY_001",
-      "codeSystem": "2.16.840.1.113883.9999.1",
-      "displayName": "Pivotal BA Study"
-    }
-  ]
+    "documents": [
+        {
+            "module": "m1",
+            "type": "356h",
+            "title": "Form FDA 356h"
+        },
+        {
+            "module": "m1",
+            "type": "cover",
+            "title": "Cover Letter"
+        },
+        {
+            "module": "m5",
+            "type": "bioavailability",
+            "title": "Bioavailability Study Report",
+            "keywordRefs": ["STUDY_001"]
+        }
+    ],
+    "keywords": [
+        {
+            "type": "studyId",
+            "code": "STUDY_001",
+            "codeSystem": "2.16.840.1.113883.9999.1",
+            "displayName": "Pivotal BA Study"
+        }
+    ]
 }
 ```
 
 ## Document Types
 
-| Type | Module | Description |
-|------|--------|-------------|
-| `356h` | m1 | FDA Form 356h |
-| `cover` | m1 | Cover Letter |
-| `2253` | m1 | FDA Form 2253 (Promotional) |
-| `product_info` | m3 | Drug Product Information |
-| `bioavailability` | m5 | BA/BE Study Reports |
-| `clinical_study` | m5 | Clinical Study Reports |
+| Type              | Module | Description                 |
+| ----------------- | ------ | --------------------------- |
+| `356h`            | m1     | FDA Form 356h               |
+| `cover`           | m1     | Cover Letter                |
+| `2253`            | m1     | FDA Form 2253 (Promotional) |
+| `product_info`    | m3     | Drug Product Information    |
+| `bioavailability` | m5     | BA/BE Study Reports         |
+| `clinical_study`  | m5     | Clinical Study Reports      |
 
 ## Lifecycle Operations
 
-| Operation | Description |
-|-----------|-------------|
-| `new` | New document (default) |
+| Operation | Description                                        |
+| --------- | -------------------------------------------------- |
+| `new`     | New document (default)                             |
 | `replace` | Replaces existing document (requires `replacesId`) |
-| `append` | Appends to existing content |
-| `delete` | Withdraws/suspends content |
+| `append`  | Appends to existing content                        |
+| `delete`  | Withdraws/suspends content                         |
 
 ### Example: Replace Operation
 
 ```json
 {
-  "module": "m5",
-  "type": "bioavailability",
-  "title": "Revised Study Report",
-  "operation": "replace",
-  "replacesId": "uuid-of-original-context-of-use"
+    "module": "m5",
+    "type": "bioavailability",
+    "title": "Revised Study Report",
+    "operation": "replace",
+    "replacesId": "uuid-of-original-context-of-use"
 }
 ```
 
 ## Keyword Types
 
-| Type | ICH Code | Description |
-|------|----------|-------------|
-| `studyId` | `ich_keyword_type_8` | Clinical Study Identifier |
-| `productName` | `ich_keyword_type_4` | Drug Product Name |
-| `manufacturer` | `ich_keyword_type_3` | Manufacturing Site |
-| `materialId` | `us_keyword_definition_type_1` | Promotional Material ID |
-| `issueDate` | `us_keyword_definition_type_2` | Issue Date |
+| Type           | ICH Code                       | Description               |
+| -------------- | ------------------------------ | ------------------------- |
+| `studyId`      | `ich_keyword_type_8`           | Clinical Study Identifier |
+| `productName`  | `ich_keyword_type_4`           | Drug Product Name         |
+| `manufacturer` | `ich_keyword_type_3`           | Manufacturing Site        |
+| `materialId`   | `us_keyword_definition_type_1` | Promotional Material ID   |
+| `issueDate`    | `us_keyword_definition_type_2` | Issue Date                |
+
+## Sample Configurations
+
+### Large Scale Submission Example
+
+A sample configuration (`sample-large-config.json`) is provided that demonstrates:
+
+-   **40 Keywords**: 20 manufacturer keywords + 20 product name keywords
+-   **40 Module 3 Documents**: Each document references a manufacturer and product name keyword
+-   **Real-world scenario**: Multiple products from different manufacturing sites
+
+To generate this large-scale example:
+
+```bash
+node src/index.js --input sample-large-config.json
+```
+
+This will generate:
+
+-   42 total documents (2 in m1, 40 in m3)
+-   40 keyword definitions in the application section
+-   80 keyword references across m3 documents
+-   Complete cross-referencing structure
 
 ## Output Structure
 
@@ -172,9 +195,10 @@ output/
 ## Compliance
 
 This generator produces submissions conformant to:
-- ICH eCTD v4.0 Implementation Guide v1.5
-- US FDA eCTD v4.0 Implementation Guide v1.5.1
-- HL7 v3 Regulated Product Submission (RPS) Schema
+
+-   ICH eCTD v4.0 Implementation Guide v1.5
+-   US FDA eCTD v4.0 Implementation Guide v1.5.1
+-   HL7 v3 Regulated Product Submission (RPS) Schema
 
 ## License
 
