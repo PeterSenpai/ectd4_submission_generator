@@ -1,0 +1,40 @@
+{
+    "name": "ectd-generator-backend",
+    "version": "1.0.0",
+    "description": "eCTD 4.0 Submission Generator Backend API",
+    "main": "src/index.js",
+    "bin": {
+        "ectd-generate": "./src/index.js"
+    },
+    "scripts": {
+        "start": "node src/index.js",
+        "generate": "node src/index.js",
+        "generate-config": "node generate-config.js",
+        "start:server": "node server.js",
+        "dev:server": "nodemon server.js"
+    },
+    "keywords": [
+        "ectd",
+        "fda",
+        "regulatory",
+        "submission",
+        "hl7",
+        "rps"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "ajv": "^8.12.0",
+        "archiver": "^6.0.1",
+        "commander": "^11.1.0",
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "fast-xml-parser": "^4.3.2",
+        "morgan": "^1.10.0",
+        "pdfkit": "^0.14.0",
+        "uuid": "^9.0.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.2"
+    }
+}

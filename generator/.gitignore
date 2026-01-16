@@ -1,1 +1,25 @@
+# Dependencies
+node_modules/
+
+# Temporary files
 temp/
+
+# Generated output
+output/
+
+# Generated configs
+generated-config.json
+
+# Build output
+frontend/dist/
+
+# Environment files
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+
+# OS files
+.DS_Store

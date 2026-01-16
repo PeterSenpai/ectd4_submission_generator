@@ -1,43 +1,24 @@
 {
     "name": "ectd-generator",
     "version": "1.0.0",
-    "description": "eCTD 4.0 Submission Generator CLI - Generates valid eCTD 4.0 submission packages",
-    "main": "src/index.js",
-    "bin": {
-        "ectd-generate": "./src/index.js"
-    },
+    "description": "eCTD 4.0 Submission Generator - Full Stack Application",
+    "private": true,
     "scripts": {
-        "start": "node src/index.js",
-        "generate": "node src/index.js",
-        "generate-config": "node generate-config.js",
-        "start:server": "node server.js",
-        "dev:server": "nodemon server.js",
-        "frontend:dev": "cd frontend && npm run dev",
+        "backend:install": "cd backend && npm install",
+        "backend:start": "cd backend && npm run start:server",
+        "backend:dev": "cd backend && npm run dev:server",
+        "backend:generate": "cd backend && npm run generate",
+        "frontend:install": "cd frontend && npm install",
+        "frontend:start": "cd frontend && npm run dev",
         "frontend:build": "cd frontend && npm run build",
-        "frontend:install": "cd frontend && npm install"
+        "install:all": "npm run backend:install && npm run frontend:install",
+        "dev": "echo 'Run backend:start and frontend:start in separate terminals'"
     },
     "keywords": [
         "ectd",
         "fda",
         "regulatory",
-        "submission",
-        "hl7",
-        "rps"
+        "submission"
     ],
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-        "ajv": "^8.12.0",
-        "archiver": "^6.0.1",
-        "commander": "^11.1.0",
-        "cors": "^2.8.5",
-        "express": "^4.18.2",
-        "fast-xml-parser": "^4.3.2",
-        "morgan": "^1.10.0",
-        "pdfkit": "^0.14.0",
-        "uuid": "^9.0.1"
-    },
-    "devDependencies": {
-        "nodemon": "^3.0.2"
-    }
+    "license": "MIT"
 }
