@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "ectd-generator-api",
+		"name": "eCTD 4.0 Generator API",
+		"description": "Complete collection for testing the eCTD 4.0 Submission Generator REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Health & Info",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": ["{{baseUrl}}"],
+							"path": ["health"]
+						},
+						"description": "Check if the API server is running and healthy"
+					}
+				},
+				{
+					"name": "API Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": ["{{baseUrl}}"],
+							"path": [""]
+						},
+						"description": "Get API information and available endpoints"
+					}
+				},
+				{
+					"name": "API Documentation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/docs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "docs"]
+						},
+						"description": "Get detailed API documentation"
+					}
+				}
+			],
+			"description": "Health check and API information endpoints"
+		},
+		{
+			"name": "Schema & Config",
+			"item": [
+				{
+					"name": "Get JSON Schema",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/schema",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "schema"]
+						},
+						"description": "Get the JSON schema for submission configuration"
+					}
+				},
+				{
+					"name": "Get Default Config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/config/default",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "default"]
+						},
+						"description": "Get the default submission configuration"
+					}
+				}
+			],
+			"description": "Schema and default configuration endpoints"
+		},
+		{
+			"name": "Config Generation",
+			"item": [
+				{
+					"name": "Generate Config - Small (2 manufacturers, 2 products)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"manufacturer\": 2,\n  \"productName\": 2,\n  \"nda\": \"123456\",\n  \"sponsor\": \"Test Pharmaceuticals Inc\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/config/generate",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "generate"]
+						},
+						"description": "Generate a small configuration with 2 manufacturers and 2 products"
+					}
+				},
+				{
+					"name": "Generate Config - Medium (10 manufacturers, 5 products)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"manufacturer\": 10,\n  \"productName\": 5,\n  \"nda\": \"456789\",\n  \"sponsor\": \"Global Pharma Corp\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/config/generate",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "generate"]
+						},
+						"description": "Generate a medium configuration with 10 manufacturers and 5 products"
+					}
+				},
+				{
+					"name": "Generate Config - Large (20 manufacturers, 20 products)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"manufacturer\": 20,\n  \"productName\": 20,\n  \"nda\": \"999888\",\n  \"sponsor\": \"Advanced Pharmaceuticals Inc\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/config/generate",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "generate"]
+						},
+						"description": "Generate a large configuration with 20 manufacturers and 20 products"
+					}
+				}
+			],
+			"description": "Configuration generation with different sizes"
+		},
+		{
+			"name": "Config Validation",
+			"item": [
+				{
+					"name": "Validate Config - Valid",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"config\": {\n    \"application\": {\n      \"type\": \"NDA\",\n      \"number\": \"123456\",\n      \"sponsor\": \"Test Pharma Inc\"\n    },\n    \"submission\": {\n      \"type\": \"original\",\n      \"sequenceNumber\": 1,\n      \"title\": \"Test Submission\"\n    },\n    \"contacts\": {\n      \"regulatory\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@test.com\",\n        \"phone\": \"+1234567890\",\n        \"organization\": \"Test Pharma Inc\"\n      }\n    },\n    \"documents\": [\n      {\n        \"module\": \"m1\",\n        \"type\": \"356h\",\n        \"title\": \"Form FDA 356h\"\n      },\n      {\n        \"module\": \"m1\",\n        \"type\": \"cover\",\n        \"title\": \"Cover Letter\"\n      }\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/config/validate",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "validate"]
+						},
+						"description": "Validate a valid configuration"
+					}
+				},
+				{
+					"name": "Validate Config - Invalid (missing required fields)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"config\": {\n    \"application\": {\n      \"type\": \"NDA\"\n    },\n    \"documents\": []\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/config/validate",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "validate"]
+						},
+						"description": "Validate an invalid configuration (should return validation errors)"
+					}
+				}
+			],
+			"description": "Configuration validation endpoints"
+		},
+		{
+			"name": "Submission Generation",
+			"item": [
+				{
+					"name": "Generate Default Submission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/generate/default",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "generate", "default"]
+						},
+						"description": "Generate a submission package with default configuration. Returns a ZIP file.\n\nIn Postman:\n1. Click 'Send and Download' button\n2. Choose where to save the ZIP file\n3. Extract and inspect the contents"
+					}
+				},
+				{
+					"name": "Generate Custom Submission - Small",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"config\": {\n    \"application\": {\n      \"type\": \"NDA\",\n      \"number\": \"TEST001\",\n      \"sponsor\": \"Postman Test Pharma\"\n    },\n    \"submission\": {\n      \"type\": \"original\",\n      \"sequenceNumber\": 1,\n      \"title\": \"Postman Test Submission\"\n    },\n    \"contacts\": {\n      \"regulatory\": {\n        \"firstName\": \"Jane\",\n        \"lastName\": \"Smith\",\n        \"email\": \"jane.smith@test.com\",\n        \"phone\": \"+1(555)123-4567\",\n        \"organization\": \"Postman Test Pharma\"\n      },\n      \"technical\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@test.com\",\n        \"phone\": \"+1(555)987-6543\",\n        \"organization\": \"Postman Test Pharma\"\n      }\n    },\n    \"documents\": [\n      {\n        \"module\": \"m1\",\n        \"type\": \"356h\",\n        \"title\": \"Form FDA 356h\"\n      },\n      {\n        \"module\": \"m1\",\n        \"type\": \"cover\",\n        \"title\": \"Cover Letter\"\n      },\n      {\n        \"module\": \"m3\",\n        \"type\": \"product_info\",\n        \"title\": \"Product Information\",\n        \"keywordRefs\": [\"MANU_001\", \"PROD_001\"]\n      },\n      {\n        \"module\": \"m5\",\n        \"type\": \"bioavailability\",\n        \"title\": \"Bioavailability Study Report\",\n        \"keywordRefs\": [\"STUDY_001\"]\n      }\n    ],\n    \"keywords\": [\n      {\n        \"type\": \"studyId\",\n        \"code\": \"STUDY_001\",\n        \"codeSystem\": \"2.16.840.1.113883.9999.1\",\n        \"displayName\": \"Pivotal BA Study\"\n      },\n      {\n        \"type\": \"manufacturer\",\n        \"code\": \"MANU_001\",\n        \"codeSystem\": \"2.16.840.1.113883.9999.2\",\n        \"displayName\": \"Test Manufacturing Site\"\n      },\n      {\n        \"type\": \"productName\",\n        \"code\": \"PROD_001\",\n        \"codeSystem\": \"2.16.840.1.113883.9999.1\",\n        \"displayName\": \"Test Drug Product 100mg\"\n      }\n    ]\n  },\n  \"options\": {\n    \"generatePDFs\": true\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/generate/custom",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "generate", "custom"]
+						},
+						"description": "Generate a custom submission with inline configuration. Returns a ZIP file.\n\nIn Postman:\n1. Click 'Send and Download' button\n2. Choose where to save the ZIP file"
+					}
+				},
+				{
+					"name": "Generate Custom Submission - From Generated Config",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// This request assumes you've run 'Generate Config - Small' first",
+									"// and saved the response config to a variable or file"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"config\": {\n    \"application\": {\n      \"type\": \"NDA\",\n      \"number\": \"999888\",\n      \"sponsor\": \"Generated Config Test\"\n    },\n    \"submission\": {\n      \"type\": \"original\",\n      \"sequenceNumber\": 1,\n      \"title\": \"Generated Submission with Multiple Keywords\"\n    },\n    \"contacts\": {\n      \"regulatory\": {\n        \"firstName\": \"Jane\",\n        \"lastName\": \"Smith\",\n        \"email\": \"jane.smith@global.com\",\n        \"phone\": \"+1(555)123-4567\",\n        \"organization\": \"Generated Config Test\"\n      },\n      \"technical\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"email\": \"john.doe@global.com\",\n        \"phone\": \"+1(555)987-6543\",\n        \"organization\": \"Generated Config Test\"\n      }\n    },\n    \"documents\": [],\n    \"keywords\": []\n  },\n  \"options\": {\n    \"generatePDFs\": true\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/generate/custom",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "generate", "custom"]
+						},
+						"description": "Generate submission using a previously generated config.\n\nSteps:\n1. Run 'Generate Config - Small' first\n2. Copy the 'config' object from the response\n3. Paste it into the 'config' field in this request body\n4. Click 'Send and Download'"
+					}
+				}
+			],
+			"description": "Submission package generation endpoints (returns ZIP files)"
+		},
+		{
+			"name": "Complete Workflow",
+			"item": [
+				{
+					"name": "Step 1: Generate Config",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Save the generated config for next request",
+									"var jsonData = pm.response.json();",
+									"if (jsonData.success && jsonData.config) {",
+									"    pm.environment.set('generatedConfig', JSON.stringify(jsonData.config));",
+									"    console.log('Config saved to environment variable');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"manufacturer\": 3,\n  \"productName\": 3,\n  \"nda\": \"WORKFLOW001\",\n  \"sponsor\": \"Workflow Test Pharma\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/config/generate",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "generate"]
+						},
+						"description": "Step 1: Generate a configuration (saved to environment for next step)"
+					}
+				},
+				{
+					"name": "Step 2: Validate Config",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Get the config from environment",
+									"var config = pm.environment.get('generatedConfig');",
+									"if (config) {",
+									"    pm.variables.set('configToValidate', config);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"config\": {{configToValidate}}\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/config/validate",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "config", "validate"]
+						},
+						"description": "Step 2: Validate the generated config (uses config from Step 1)"
+					}
+				},
+				{
+					"name": "Step 3: Generate Submission",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Get the config from environment",
+									"var config = pm.environment.get('generatedConfig');",
+									"if (config) {",
+									"    pm.variables.set('configForSubmission', config);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"config\": {{configForSubmission}},\n  \"options\": {\n    \"generatePDFs\": true\n  }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/generate/custom",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "generate", "custom"]
+						},
+						"description": "Step 3: Generate submission using the config from Step 1.\n\nClick 'Send and Download' to save the ZIP file."
+					}
+				}
+			],
+			"description": "Complete workflow: Generate → Validate → Create Submission"
+		}
+	]
+}

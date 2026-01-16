@@ -1,6 +1,6 @@
 # eCTD 4.0 Submission Generator
 
-A Node.js command-line tool for generating valid eCTD 4.0 submission packages compliant with ICH eCTD v4.0 IG v1.5 and USFDA eCTD v4.0 IG v1.5.1.
+A Node.js command-line tool and REST API server for generating valid eCTD 4.0 submission packages compliant with ICH eCTD v4.0 IG v1.5 and USFDA eCTD v4.0 IG v1.5.1.
 
 ## Features
 
@@ -11,6 +11,8 @@ A Node.js command-line tool for generating valid eCTD 4.0 submission packages co
 -   Supports lifecycle operations (new, replace, append, delete/withdraw)
 -   Generates sender-defined keywords (Study ID, Product Name, Manufacturer)
 -   Validates input configuration against JSON schema
+-   **REST API server** for programmatic access and integration
+-   Dynamic configuration generator with customizable keyword counts
 
 ## Installation
 
@@ -245,6 +247,177 @@ output/
         ├── sha256.txt
         └── submissionunit.xml
 ```
+
+## REST API Server
+
+The generator includes a REST API server for programmatic access to all functionality.
+
+### Starting the Server
+
+```bash
+npm run start:server
+```
+
+The server will start on port 3000 (configurable via `PORT` environment variable).
+
+### API Endpoints
+
+#### Health Check
+
+```bash
+GET /health
+```
+
+Returns server health status.
+
+#### Get JSON Schema
+
+```bash
+GET /api/schema
+```
+
+Returns the JSON schema for submission configuration.
+
+**Example:**
+
+```bash
+curl http://localhost:3000/api/schema
+```
+
+#### Get Default Configuration
+
+```bash
+GET /api/config/default
+```
+
+Returns the default configuration object.
+
+**Example:**
+
+```bash
+curl http://localhost:3000/api/config/default > default-config.json
+```
+
+#### Generate Configuration
+
+```bash
+POST /api/config/generate
+Content-Type: application/json
+
+{
+  "manufacturer": 10,
+  "productName": 5,
+  "nda": "123456",
+  "sponsor": "My Pharma Inc"
+}
+```
+
+Generates a configuration with specified number of keywords.
+
+**Example:**
+
+```bash
+curl -X POST http://localhost:3000/api/config/generate \
+  -H "Content-Type: application/json" \
+  -d '{"manufacturer": 10, "productName": 5}' \
+  -o generated-config.json
+```
+
+#### Validate Configuration
+
+```bash
+POST /api/config/validate
+Content-Type: application/json
+
+{
+  "config": { ... }
+}
+```
+
+Validates a configuration object and returns validation results.
+
+**Example:**
+
+```bash
+curl -X POST http://localhost:3000/api/config/validate \
+  -H "Content-Type: application/json" \
+  -d @my-config.json
+```
+
+#### Generate Submission with Default Config
+
+```bash
+POST /api/generate/default
+```
+
+Generates a submission package with default configuration and returns it as a ZIP file.
+
+**Example:**
+
+```bash
+curl -X POST http://localhost:3000/api/generate/default \
+  --output submission.zip
+```
+
+#### Generate Submission with Custom Config
+
+```bash
+POST /api/generate/custom
+Content-Type: application/json
+
+{
+  "config": { ... },
+  "options": {
+    "generatePDFs": true
+  }
+}
+```
+
+Generates a submission package with custom configuration and returns it as a ZIP file.
+
+**Example:**
+
+```bash
+# First generate a config
+curl -X POST http://localhost:3000/api/config/generate \
+  -H "Content-Type: application/json" \
+  -d '{"manufacturer": 5, "productName": 3}' \
+  -o config.json
+
+# Then generate submission with that config
+curl -X POST http://localhost:3000/api/generate/custom \
+  -H "Content-Type: application/json" \
+  -d @config.json \
+  --output custom-submission.zip
+```
+
+### API Response Format
+
+Success responses:
+
+```json
+{
+    "success": true,
+    "data": { ... }
+}
+```
+
+Error responses:
+
+```json
+{
+    "success": false,
+    "error": {
+        "message": "Error description",
+        "type": "ErrorType",
+        "validationErrors": [ ... ]
+    }
+}
+```
+
+### API Documentation
+
+Visit `http://localhost:3000/api/docs` for interactive API documentation when the server is running.
 
 ## Compliance
 
