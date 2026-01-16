@@ -51,6 +51,60 @@ npm start -- --print-schema
 npm start -- --default --no-samples
 ```
 
+## Configuration Generator
+
+A powerful tool to dynamically generate configuration files with specified numbers of keywords and documents.
+
+### Generate Custom Configuration
+
+```bash
+node generate-config.js --manufacturer <count> --productName <count> [options]
+```
+
+Or using npm:
+
+```bash
+npm run generate-config -- --manufacturer <count> --productName <count> [options]
+```
+
+### Options
+
+-   `-m, --manufacturer <number>` - Number of manufacturer keywords to generate (required)
+-   `-p, --productName <number>` - Number of product name keywords to generate (required)
+-   `-o, --output <path>` - Output configuration file path (default: `generated-config.json`)
+-   `-n, --nda <number>` - NDA application number (default: `999888`)
+-   `-s, --sponsor <name>` - Sponsor organization name (default: `Global Pharmaceuticals Inc`)
+
+### Examples
+
+Generate a config with 10 manufacturers and 10 products:
+
+```bash
+node generate-config.js --manufacturer 10 --productName 10
+```
+
+Generate a config with custom output file and NDA number:
+
+```bash
+node generate-config.js -m 20 -p 15 -o my-config.json -n 123456 -s "My Pharma Inc"
+```
+
+The generator will automatically:
+
+-   Create unique manufacturer keywords (MANU_001, MANU_002, etc.) with realistic names
+-   Create unique product name keywords (PROD_001, PROD_002, etc.) with drug names and strengths
+-   Generate documents in module 3 that reference these keywords
+-   Create pairs of documents (formulation + stability) for each product
+-   Cross-reference keywords to ensure proper eCTD structure
+
+### What Gets Generated
+
+For example, with `--manufacturer 5 --productName 3`, you get:
+
+-   **8 keywords**: 5 manufacturer + 3 product name
+-   **12 documents**: 2 in m1 + 10 in m3 (5 pairs of formulation/stability docs)
+-   Each m3 document references both a manufacturer and product keyword
+
 ## Configuration File Format
 
 ```json
