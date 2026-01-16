@@ -62,13 +62,13 @@ function KeywordRow({
                         id={`${label}-count`}
                         type="number"
                         min={1}
-                        max={50}
+                        max={1000}
                         value={count}
                         onChange={(e) =>
                             onCountChange(
                                 Math.max(
                                     1,
-                                    Math.min(50, parseInt(e.target.value) || 1)
+                                    Math.min(1000, parseInt(e.target.value) || 1)
                                 )
                             )
                         }
