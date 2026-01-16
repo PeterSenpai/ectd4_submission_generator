@@ -11,7 +11,10 @@
         "generate": "node src/index.js",
         "generate-config": "node generate-config.js",
         "start:server": "node server.js",
-        "dev:server": "nodemon server.js"
+        "dev:server": "nodemon server.js",
+        "frontend:dev": "cd frontend && npm run dev",
+        "frontend:build": "cd frontend && npm run build",
+        "frontend:install": "cd frontend && npm install"
     },
     "keywords": [
         "ectd",
